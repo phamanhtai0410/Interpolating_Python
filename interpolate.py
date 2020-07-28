@@ -1,6 +1,4 @@
 import numpy as np
-import pandas as pd
-import os
 import math
 import time
 # import tkinter as tk
@@ -22,7 +20,7 @@ class coordinates_2D:
 	# 	del self.x, self.y
 
 #------Reading values from file Function---------
-def parse(filename):
+def parse_file(filename):
 	mat = np.loadtxt(filename)
 	mat = np.transpose(mat)
 	return mat
@@ -169,10 +167,10 @@ def main():
 
 	#Reading values in input files
 	
-	data_arr = parse("data.txt")
-	props_arr = parse("props.txt")
+	data_arr = parse_file("data.txt")
+	props_arr = parse_file("props.txt")
 	#"Input interpolating point file name : ")
-	intp_arr  = parse("intp.txt")
+	intp_arr  = parse_file("intp.txt")
 	#-----------------------------------------
 	(Nx, Ny) = props_arr[:, 0]
 	Nx = int(Nx)
